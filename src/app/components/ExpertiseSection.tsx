@@ -8,7 +8,9 @@ import ReadMoreCard from "./common/ReadMoreCard";
 
 export default function ExpertiseSection() {
   return (
-    <Flex direction={{ base: "column", md: "row" }} justify="space-between" align="flex-start" px={{ base: 4, md: 20 }} py={16} gap={8} bg="gray.50">
+    <Flex direction={{ base: "column", md: "row" }} justify="space-between" align="flex-start" px={{ base: 4, md: 20 }} py={16} gap={8} bg="gray.50" 
+    _dark={{ bg: "gray.800" }} borderRadius="xl" boxShadow="md"
+    >
       <Box flexShrink={0}>
         <Heading fontSize={{ base: "3xl", md: "5xl" }} lineHeight="1.2">
           Where <br /> Expertise Meets <br /> Opportunity.

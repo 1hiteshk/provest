@@ -21,7 +21,7 @@ export default function StatCard({
       <StatNumber textAlign={'left'} fontSize="3xl" fontWeight="bold" {...valueProps}>
         {value}
       </StatNumber>
-      <StatLabel textAlign={'left'} fontSize="lg" color="gray.500" {...labelProps}>
+      <StatLabel textAlign={'left'} fontSize="lg" color="gray.500" {...labelProps} _dark={{ color: "gray.300" }}>
         {label}
       </StatLabel>
     </Stat>
