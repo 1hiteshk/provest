@@ -125,6 +125,7 @@ export default function Testimonials() {
             width={50}
             height={50}
             style={{ borderRadius: "50%", marginRight: 12 }}
+            unoptimized
           />
           <Box textAlign="left">
             <Text fontWeight="bold">{testimonials[index].author}</Text>
