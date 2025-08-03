@@ -2,6 +2,7 @@
 
 import { Box, Flex, Text, Image, VStack, HStack, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import FlipCard from "./common/FlipCard";
 
 const MotionImage = motion(Image);
 
@@ -12,17 +13,11 @@ export default function Footer() {
         <VStack align="start" spacing={2}>
           <Text fontSize="xl" fontWeight="bold">Get in Touch</Text>
           <Text>Email: contact@provest.com</Text>
-          <Text>Phone: +1 (555) 123-4567</Text>
-          <Text>Address: 123 Main Street, New York, NY</Text>
+          <Text>Phone: +91 123-4567</Text>
+          <Text>Address: 123 Main Street, New Delhi, DL</Text>
         </VStack>
 
-        <MotionImage
-          src="/images/footer-globe.png"
-          alt="Rotating Globe"
-          boxSize="100px"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        />
+        <FlipCard />
       </Flex>
 
       <Text textAlign="center" mt={10} fontSize="sm" color="gray.600">

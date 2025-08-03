@@ -13,6 +13,7 @@ import Stats from "./components/Stats";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ExpertiseSection from "./components/ExpertiseSection";
 
 export default function HomePage() {
   const homeRef = useRef(null);
@@ -33,10 +34,11 @@ export default function HomePage() {
     <ChakraProvider theme={theme}>
       <Box bg="gray.50" _dark={{ bg: "gray.900" }}>
         <Header sections={sections} />
-        <Box ref={homeRef}><Hero /></Box>
-        <Testimonials />
+        <Box ref={homeRef}>  <Testimonials /></Box>
+      
         <TagsScroll />
         <Box ref={propertiesRef}><PropertiesCarousel /></Box>
+        <ExpertiseSection />
         <Stats />
         <Box ref={faqRef}><FAQ /></Box>
         <Footer />

@@ -17,17 +17,18 @@ const tags = [
 const MotionBox = motion(Box);
 
 export default function TagsScroll() {
-     const bg = useColorModeValue("gray.100", "gray.700");
-  const textColor = useColorModeValue("gray.700", "gray.300");
+  const bg = useColorModeValue("#6B4437", "#6B4437");
+  const textColor = useColorModeValue("white", "gray.300");
   return (
-    <Box overflow="hidden" py={8} bg={bg}> 
+    <Box overflow="hidden" py={8} bg={bg}>
       <MotionBox
         display="flex"
-        animate={{ x: ["100%", "-100%"] }}
-        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         whiteSpace="nowrap"
+        width="fit-content"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
       >
-        {tags.map((tag, index) => (
+        {[...tags, ...tags].map((tag, index) => (
           <Text
             key={index}
             mx={8}

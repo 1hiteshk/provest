@@ -15,6 +15,18 @@ const faqs = [
     question: "What types of properties do you list?",
     answer: "We list residential, commercial, and luxury investment properties globally.",
   },
+  {
+    question: "How long does it take to complete a project?",
+    answer: "We list residential, commercial, and luxury investment properties globally 1 month.",
+  },
+  {
+    question: "What is the process for starting a project?",
+    answer: "We start with a consultation to understand your needs, followed by a detailed proposal and project plan.",
+  },
+  {
+    question: "How do I know if your agency is the right fit for me?",
+    answer: "We offer a free initial consultation to discuss your needs and how we can help you achieve your investment goals.",
+  },
 ];
 
 export default function FAQ() {
@@ -22,14 +34,21 @@ export default function FAQ() {
     <Box py={20} px={6} maxW="4xl" mx="auto">
       <Heading textAlign="center" mb={10}>Frequently Asked Questions</Heading>
       <Accordion allowToggle>
-        {faqs.map((faq, index) => (
+       {faqs.map((faq, index) => (
           <AccordionItem key={index} border="1px solid" borderColor="gray.200" borderRadius="md" mb={4}>
-            <h2>
-              <AccordionButton _expanded={{ bg: "teal.400", color: "white" }}>
-                <Box flex="1" textAlign="left">{faq.question}</Box>
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4}>{faq.answer}</AccordionPanel>
+            {({ isExpanded }) => (
+              <>
+                <h2>
+                  <AccordionButton _expanded={{ bg: "teal.400", color: "white" }}>
+                    <Box flex="1" textAlign="left">{faq.question}</Box>
+                    <Box as="span" ml={2} fontSize="26px" fontWeight='bold' color="gray.500">
+                      {isExpanded ? "-" : "+"}
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>{faq.answer}</AccordionPanel>
+              </>
+            )}
           </AccordionItem>
         ))}
       </Accordion>

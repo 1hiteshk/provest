@@ -19,11 +19,13 @@ export default function ScrollToTopButton() {
 
   return (
     <IconButton
-      icon={<ChevronUpIcon />}
+      icon={<ChevronUpIcon fontSize={'26px'} />}
       position="fixed"
       bottom={6}
       right={6}
-      colorScheme="teal"
+     // colorScheme="teal"
+     color={"white"}
+      backgroundColor={'#6B4437'}
       aria-label="Scroll to top"
       onClick={scrollToTop}
       zIndex={999}
