@@ -65,9 +65,9 @@ export default function FAQ() {
         {faqs.map((faq, index) => (
           <AccordionItem
             key={index}
-            border="1px solid"
-            borderColor="gray.200"
-            borderRadius="100px"
+        //    border="1px solid"
+         //   borderColor="gray.200"
+            borderRadius={{ base:'100px' ,md:"100px"}}
             mb={"20px"}
           >
             {({ isExpanded }) => (
@@ -76,8 +76,8 @@ export default function FAQ() {
                   <AccordionButton
                     padding={{ base: "15px 30px", md: "30px 60px" }}
                     bg={"white"}
-                    _dark={{ bg: "transparent" }}
-                    borderRadius={"100px"}
+                    _dark={{ bg: "gray.700" }}
+                    borderRadius={{ base:'100px' ,md:"100px"}}
                     _expanded={{ bg: "#6B4437", color: "white" }}
                   >
                     <Box
