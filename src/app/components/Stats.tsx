@@ -12,14 +12,14 @@ const stats = [
 
 export default function Stats() {
   return (
-    <Box py={20} px={6} bg={useColorModeValue("gray.50", "gray.800")}> 
+    <Box py={20} px={16} bg={useColorModeValue("gray.50", "gray.800")}> 
       <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
        
         {stats.map((stat, index) => (
           <StatCard key={index} label={stat.label} value={stat.value} 
             labelProps={{ fontSize: "24px", color: "#1B1B1B" }}
             valueProps={{
-              fontSize: "50px",
+              fontSize: { base: "60px", md: "100px" },
               fontWeight: "medium",
               color: "#6B4437",
             }}

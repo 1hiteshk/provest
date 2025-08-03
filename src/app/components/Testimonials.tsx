@@ -1,50 +1,56 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Box, Text, Heading, Flex, IconButton, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Heading,
+  Flex,
+  IconButton,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import Hero from "./Hero";
 
 const testimonials = [
   {
-    image:
-      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800",
-    text: "I trusted them with my first investment, and the returns exceeded my expectations. The whole process was seamless.",
+    image: "/house1.jpg",
+    text: "I trusted them with my first investment, and the returns exceeded my expectations.",
     author: "Sophia Greene",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/house2.jpg",
+    // "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
     text: "Exceptional service and market knowledge. I felt guided and informed every step of the way.",
     author: "Daniel Carter",
     avatar: "https://randomuser.me/api/portraits/men/36.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/house3.jpg",
+    //  "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
     text: "Their expertise made all the difference. I’m now confident in growing my property portfolio.",
     author: "Amelia Stone",
     avatar: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/house4.jpg",
+    // "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=800",
     text: "Transparent, professional, and highly reliable. Definitely recommended for new investors.",
     author: "Liam Patel",
     avatar: "https://randomuser.me/api/portraits/men/22.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/house5.jpg",
+    // "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800",
     text: "I love how they tailor strategies to individual goals. I’ve never felt more in control of my investments.",
     author: "Emily Hayes",
     avatar: "https://randomuser.me/api/portraits/women/30.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/house6.jpg",
+    //  "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800",
     text: "The team helped me identify the right property at the right time. It was a game changer.",
     author: "Noah Jensen",
     avatar: "https://randomuser.me/api/portraits/men/48.jpg",
@@ -68,12 +74,23 @@ export default function Testimonials() {
 
   return (
     <Box textAlign="center" py={20} px={4}>
-      <Flex justifyContent={"space-between"} alignItems={"center"} direction={{ base:'column', sm:"row"}}>
+      <Flex
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        direction={{ base: "column", md: "row" }}
+        
+      >
         <Hero />
-        <Flex justify="center" direction={{ base:'row', sm:"column"}}  gap={4} mt={6}>
+        <Flex
+          justify="center"
+          direction={{ base: "row", md: "column" }}
+          gap={4}
+          mt={6}
+          fontSize={"17px"}
+        >
           <IconButton
             aria-label="Previous"
-            border={"1px solid #6B4437"}
+            border={"2px solid #6B4437"}
             color={"#6B4437"}
             backgroundColor={"white"}
             borderRadius={"50%"}
@@ -81,11 +98,11 @@ export default function Testimonials() {
             onClick={prev}
           />
           <Text>01</Text>
-          <Text>/ {index+1} /</Text>
+          <Text>/ {index + 1} /</Text>
           <Text>06</Text>
           <IconButton
             aria-label="Next"
-            border={"1px solid #6B4437"}
+            border={"2px solid #6B4437"}
             color={"#6B4437"}
             borderRadius={"50%"}
             backgroundColor={"white"}
@@ -95,27 +112,28 @@ export default function Testimonials() {
         </Flex>
       </Flex>
 
-      <Box maxW="3xl" mx="auto" pt={"50px"}>
+      <Box maxW="4xl" mx="auto" pt={"10px"}>
         <Image
-          height={40}
-          width={100}
+          width={700}
+          height={500}
+          unoptimized
           src={testimonials[index].image}
           alt={testimonials[index].author}
           style={{
             borderRadius: 12,
-            width: "100%",
-            height: isMobile? "300px" : "600px",
-            maxHeight: isMobile? '300px' : "600px",
-            objectFit: "cover",
+              width: "100%",
+             height: isMobile? "300px" : "500px",
+             maxHeight: isMobile? '300px' : "500px",
+             objectFit: "cover",
           }}
         />
         <Text fontSize={"18px"} mt={4} color={"#6B4437"}>
           TESTIMONIAL CLIENT
         </Text>
-        <Heading fontSize={"36px"}>
+        <Heading fontSize={"48px"}>
           Success Stories That Inspire Confidence.
         </Heading>
-        <Text mt={6} fontSize="lg" color="gray.600" minHeight={"60px"}>
+        <Text mt={6} fontSize="32px" color="gray.600" minHeight={"60px"}>
           “{testimonials[index].text}”
         </Text>
         <Flex justifyContent={"center"} alignItems={"center"} mt={6}>
@@ -128,8 +146,10 @@ export default function Testimonials() {
             unoptimized
           />
           <Box textAlign="left">
-            <Text fontWeight="bold">{testimonials[index].author}</Text>
-            <Text fontSize="sm" color="gray.500">
+            <Text fontWeight="bold" fontSize={"24px"}>
+              {testimonials[index].author}
+            </Text>
+            <Text fontSize="16px" color="#6B4437">
               Investor
             </Text>
           </Box>

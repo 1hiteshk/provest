@@ -11,8 +11,8 @@ const stats = [
 
 export default function Hero() {
   return (
-    <Flex direction={{ base:'column', sm:"row"}} width={'100%'} flexGrow={1} >
-      <Flex direction={{ base:'row', sm:"column"}} justify="center" p={8} gap={4} flex={1} alignItems={'center'} >
+    <Flex direction={{ base:'column', md:"row"}} width={'100%'} flexGrow={1} >
+      <Flex direction={{ base:'row', md:"column"}} justify="center" p={8} gap={4} flex={1} alignItems={'center'} >
         {stats.map((stat, index) => (
           <StatCard
             key={index}
@@ -39,13 +39,13 @@ export default function Hero() {
           PROPERTY INVESTMENT
         </Text>
          <Box textAlign="center" lineHeight="1.4">
-      <Text fontSize="2xl">
+      <Text fontSize={{ base:'48px' ,md:"96px"}}>
         <Text as="span" fontWeight="bold">
           Building
         </Text>{" "}
         <Text as="span">Wealth,</Text>
       </Text>
-      <Text fontSize="2xl">
+      <Text fontSize={{ base:'48px' ,md:"96px"}}>
         <Text as="span">One Property </Text>
         <Text as="span" fontWeight="bold">
           at a Time.

@@ -27,9 +27,22 @@ const properties = [
   "https://images.pexels.com/photos/1571471/pexels-photo-1571471.jpeg?auto=compress&cs=tinysrgb&w=400",
   "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400",
 ];
+const propertyNames = [
+  "Luxury Villa",
+  "Modern Apartment",
+  "Cozy Cottage",
+  "Urban Loft",
+  "Beachfront Bungalow",
+  "Mountain Retreat",
+  "City Penthouse",
+  "Suburban Home",
+  "Historic Mansion",
+  "Contemporary Condo",
+];
 
 export default function PropertiesCarousel() {
   const visibleCount = useBreakpointValue({ base: 1, sm: 2, md: 4 }) || 4;
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const scrollRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const cardWidth = 280;
@@ -55,21 +68,21 @@ export default function PropertiesCarousel() {
         textAlign="center"
         zIndex={0}
         opacity={0.05}
-        fontSize="9xl"
-        fontWeight="bold"
+        fontSize={{ base:'6xl' ,md:"9xl"}}
+        fontWeight="semibold"
       >
         PROPERTY INVESTMENT
       </Box>
 
-      <Box position="relative" zIndex={1}>
-        <Heading textAlign="center" mb={6}>
+      <Box position="relative" zIndex={1} mt={20}>
+        <Text textAlign="center" mb={6} fontSize={{base:"48px" ,md:'64px'}} >
           Showcasing The Best In Property Opportunities
-        </Heading>
+        </Text>
         <HStack justify="center" mb={6}>
           <IconButton
             aria-label="Left"
             icon={<ArrowBackIcon />}
-            border={"1px solid #6B4437"}
+            border={"2px solid #6B4437"}
             color={"#6B4437"}
             backgroundColor={"white"}
             borderRadius={"50%"}
@@ -79,7 +92,7 @@ export default function PropertiesCarousel() {
           <IconButton
             aria-label="Right"
             icon={<ArrowForwardIcon />}
-            border={"1px solid #6B4437"}
+            border={"2px solid #6B4437"}
             color={"#6B4437"}
             backgroundColor={"white"}
             borderRadius={"50%"}
@@ -108,9 +121,9 @@ export default function PropertiesCarousel() {
                 maxW={`${cardWidth}px`}
                 borderRadius="lg"
                 overflow="hidden"
-                boxShadow="md"
-                bg="white"
-                paddingTop={i % 2 == 0 ? "0" : "50px"}
+               // boxShadow="md"
+               // bg="white"
+                marginTop={i % 2 === 0 ? (isMobile ? "0" : "50px") : "0"}
               >
                 <Image
                   src={src}
@@ -118,9 +131,10 @@ export default function PropertiesCarousel() {
                   w="100%"
                   h="200px"
                   objectFit="cover"
+                  borderRadius="lg"
                 />
-                <Text textAlign="center" py={2} fontWeight="medium">
-                  Property {i + 1}
+                <Text textAlign="left" py={2} fontSize={'24px'} color="1B1B1B">
+               {(i + 1).toString().padStart(2, "0")}.  {propertyNames[i]}
                 </Text>
               </Box>
             ))}

@@ -8,7 +8,7 @@ const MotionImage = motion(Image);
 
 export default function Footer() {
   return (
-    <Box bg={useColorModeValue("gray.200", "gray.700")} py={10} px={6}>
+    <Box bg={useColorModeValue("gray.200", "gray.700")} py={10} px={6} fontSize={'24px'}>
       <Flex direction={{ base: "column", md: "row" }} justify="space-between" align="center" gap={8}>
         <VStack align="start" spacing={2}>
           <Text fontSize="xl" fontWeight="bold">Get in Touch</Text>
@@ -20,7 +20,7 @@ export default function Footer() {
         <FlipCard />
       </Flex>
 
-      <Text textAlign="center" mt={10} fontSize="sm" color="gray.600">
+      <Text textAlign="center" mt={10} color="#1B1B1B">
         © {new Date().getFullYear()} Provest. All rights reserved.
       </Text>
     </Box>

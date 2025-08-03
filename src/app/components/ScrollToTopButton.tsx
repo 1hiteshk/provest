@@ -19,16 +19,19 @@ export default function ScrollToTopButton() {
 
   return (
     <IconButton
-      icon={<ChevronUpIcon fontSize={'26px'} />}
+      icon={<ChevronUpIcon fontSize={"26px"} />}
       position="fixed"
       bottom={6}
       right={6}
-     // colorScheme="teal"
-     color={"white"}
-      backgroundColor={'#6B4437'}
+      // colorScheme="teal"
+      color={"white"}
+      backgroundColor={"#6B4437"}
       aria-label="Scroll to top"
       onClick={scrollToTop}
       zIndex={999}
+      borderRadius="full"
+      _hover={{ bg: "#6B4437" }} // disables hover color change
+      _active={{ bg: "#6B4437" }} // disables active state color
     />
   );
 }
