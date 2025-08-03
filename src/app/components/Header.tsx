@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { SunIcon, MoonIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const navItems = ["Home", "About", "Services", "Properties", "FAQ"];
 
@@ -36,7 +37,14 @@ export default function Header({ sections }: { sections: SectionsRefs }) {
   return (
     <Box position="fixed" w="100%" zIndex="999" bg="gray.50" _dark={{ bg: "gray.800" }}>
       <Flex justify="space-between" align="center" p={4} px={6}>
-        <Text fontWeight="bold" fontSize="xl">Provest</Text>
+        
+       <Flex align="center" gap={2} cursor={'pointer'} >
+         <Image src={colorMode==='light'? "/home.svg": '/homewhite.svg'} alt="Provest Logo" width={42} height={42} />
+       <Flex>
+        <Text fontWeight="normal" fontSize='26px'>Pro</Text>
+        <Text fontWeight="bold" fontSize="26px">vest</Text>
+       </Flex>
+       </Flex>
 
         {isMobile ? (
           <HStack>
@@ -45,18 +53,20 @@ export default function Header({ sections }: { sections: SectionsRefs }) {
               icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               onClick={toggleColorMode}
               variant="ghost"
+              fontSize={'26px'}
             />
             <IconButton
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               onClick={isOpen ? onClose : onOpen}
               variant="ghost"
               aria-label="Menu"
+                fontSize={'26px'}
             />
           </HStack>
         ) : (
           <HStack spacing={6} alignItems="center">
             {navItems.map((item) => (
-              <Button key={item} variant="ghost" onClick={() => scrollTo(item)}>
+              <Button key={item} variant="ghost" color={colorMode==='light'? '#1B1B1B' : '#EDF2F7'} fontSize={'20px'} onClick={() => scrollTo(item)}>
                 {item}
               </Button>
             ))}
