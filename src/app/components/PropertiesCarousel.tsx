@@ -1,8 +1,16 @@
 "use client";
 
-import { Box, Text, Heading, IconButton, Image, useBreakpointValue, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Heading,
+  IconButton,
+  Image,
+  useBreakpointValue,
+  HStack,
+} from "@chakra-ui/react";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -22,13 +30,17 @@ const properties = [
 
 export default function PropertiesCarousel() {
   const visibleCount = useBreakpointValue({ base: 1, sm: 2, md: 4 }) || 4;
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const cardWidth = 280;
   const gap = 24;
 
   const maxIndex = properties.length - visibleCount;
 
-  const offsetX = useMemo(() => -(index * (cardWidth + gap)), [index, cardWidth, gap]);
+  const offsetX = useMemo(
+    () => -(index * (cardWidth + gap)),
+    [index, cardWidth, gap]
+  );
 
   const prev = () => setIndex((prev) => Math.max(0, prev - 1));
   const next = () => setIndex((prev) => Math.min(maxIndex, prev + 1));
@@ -76,7 +88,12 @@ export default function PropertiesCarousel() {
           />
         </HStack>
 
-        <Box overflow="hidden" px={4}>
+        <Box
+          overflow="hidden"
+          px={4}
+          ref={scrollRef}
+          css={{ WebkitOverflowScrolling: "touch" }}
+        >
           <MotionBox
             display="flex"
             gap={`${gap}px`}
@@ -93,7 +110,7 @@ export default function PropertiesCarousel() {
                 overflow="hidden"
                 boxShadow="md"
                 bg="white"
-                paddingTop={i%2==0 ? "0" : "50px"}
+                paddingTop={i % 2 == 0 ? "0" : "50px"}
               >
                 <Image
                   src={src}
