@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Box,
   Text,
@@ -60,17 +60,33 @@ const testimonials = [
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 480px)");
+   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-    return () => clearInterval(interval);
+  };
+
+  const resetInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    startInterval();
+  };
+
+  useEffect(() => {
+    startInterval();
+    return () => clearInterval(intervalRef.current!);
   }, []);
 
-  const prev = () =>
+  const prev = () => {
     setIndex((index - 1 + testimonials.length) % testimonials.length);
-  const next = () => setIndex((index + 1) % testimonials.length);
+    resetInterval();
+  };
+
+  const next = () => {
+    setIndex((index + 1) % testimonials.length);
+    resetInterval();
+  };
 
   return (
     <Box textAlign="center" py={20} px={4}>
